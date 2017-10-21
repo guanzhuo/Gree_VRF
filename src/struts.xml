@@ -13,6 +13,9 @@
 		<action name="test" class="com.gree.aftermarket.select.action.TestAction">
             <result name="success">/test.jsp</result>
 		</action>
+		<action name="login" class="com.gree.aftermarket.select.action.LoginAction">
+            <result name="success">/index.jsp</result>
+		</action>
 	</package>
 
 </struts>  

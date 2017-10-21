@@ -4,16 +4,12 @@ import javax.annotation.Resource;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
-import com.gree.aftermarket.select.service.TestService;
+
+import com.gree.aftermarket.select.service.LoginService;
 import com.opensymphony.xwork2.ActionSupport;
 @Controller
 @Scope("prototype")
-public class TestAction extends ActionSupport {
-//	@Override
-//	public String execute() throws Exception {
-//		System.out.println("--testSuccess");
-//		return "success";
-//	}
+public class LoginAction extends ActionSupport{
 	private String email;
 	private String password;
 	
@@ -30,14 +26,12 @@ public class TestAction extends ActionSupport {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	@Resource(name="loginService")
+	private LoginService loginService;
 	
-	@Resource(name="testService")
-    private TestService testService;  
-    @Override
-    public String execute() throws Exception {  
-    	
+	public String execute() throws Exception {  
         System.out.println("---------->TestAction execute()"+email+password);  
-        testService.saveTwoUser();
+        loginService.loginInfo(email, password);
         
         return "success";  
     }

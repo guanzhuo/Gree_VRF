@@ -1,16 +1,19 @@
 package com.gree.aftermarket.select.bean;
 
 public class User {
-    private int id;
+    private String id;
     private String name;
-    public User(int id,String name){
+    public User(String id,String name){
     	this.id = id;
     	this.name =name;
     }
-	public int getId() {
+    public User(String name){
+    	this.name = name;
+    }
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getName() {
