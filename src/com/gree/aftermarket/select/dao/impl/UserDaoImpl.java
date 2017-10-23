@@ -1,5 +1,7 @@
 package com.gree.aftermarket.select.dao.impl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.gree.aftermarket.select.base.impl.BaseDaoImpl;
@@ -11,5 +13,10 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao{
     public void save(User k) {
     	// TODO Auto-generated method stub
     	super.save(k);
+    }
+    @Override
+    public List<User> findAll(String sql) {
+    	// TODO Auto-generated method stub
+    	return super.findAll(sql);
     }
 }

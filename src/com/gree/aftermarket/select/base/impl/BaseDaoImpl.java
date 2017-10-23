@@ -62,7 +62,8 @@ public abstract class BaseDaoImpl<K> implements BaseDao<K>{
 	@Override
 	public List<K> findAll(String sql) {
 		// TODO Auto-generated method stub
-		return null;
+		List<K> list = this.getSession().createQuery(sql).list();
+		return list;
 	}
 
 }

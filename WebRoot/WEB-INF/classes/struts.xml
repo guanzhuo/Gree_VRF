@@ -4,17 +4,22 @@
     "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-	<!-- 配置为开发模式 -->
+
+	<!-- 配置为开发模式 正式版需要进行关闭-->
 	<constant name="struts.devMode" value="true" />
-	<!-- 配置扩展名为action -->
-	<constant name="struts.action.extension" value="action" />
+	<!-- 配置扩展名为do -->
+	<constant name="struts.action.extension" value="do" />
 	<package name="default" namespace="/" extends="struts-default">
 		<!-- 测试action -->
-		<action name="test" class="com.gree.aftermarket.select.action.TestAction">
+		<!-- <action name="test" class="com.gree.aftermarket.select.action.TestAction">
             <result name="success">/test.jsp</result>
 		</action>
 		<action name="login" class="com.gree.aftermarket.select.action.LoginAction">
             <result name="success">/index.jsp</result>
+		</action> -->
+		<action name="*_*" method="{2}" class="com.gree.aftermarket.select.action.{1}Action">
+			<!-- <result name="success">/index.jsp</result>
+			<result name="fail">/login.jsp</result> -->
 		</action>
 	</package>
 

@@ -1,5 +1,7 @@
 package com.gree.aftermarket.select.base;
 
+import java.util.List;
+
 public class BaseService<K> {
 	protected BaseDao<K> baseDao;
 	public BaseDao<K> getBaseDao() {
@@ -11,4 +13,7 @@ public class BaseService<K> {
 	public void add(K k) {
 		baseDao.save(k);
 	}
+//	public List<K> getAll(){
+//		return baseDao.findAll("from "+)
+//	}
 }

@@ -8,8 +8,32 @@
             <column name="id" length="40"></column>
             <generator class="uuid.hex"></generator>
         </id>  
-        <property name="name" type="string" length="40">
-        	<column name="name"></column>
+        <property name="name" type="string">
+        	<column name="name"  length="40"></column>
+        </property>  
+        <property name="email" type="string">
+        	<column name="email" length="40"></column>
+        </property>  
+        <property name="pwd" type="string">
+        	<column name="pwd" length="40"></column>
+        </property>  
+        <property name="phone" type="string">
+        	<column name="phone" length="15"></column>
+        </property>  
+        <property name="address" type="string">
+        	<column name="address" length="40"></column>
+        </property>  
+        <property name="creater" type="string">
+        	<column name="creater" length="40"></column>
+        </property>  
+        <property name="createDate" type="timestamp">
+        	<column name="createDate" length="19" not-null="true"></column>
+        </property>  
+        <property name="delFlag" type="int">
+        	<column name="delFlag" length="1"></column>
+        </property>  
+        <property name="customerId" type="string">
+        	<column name="customerId" length="40"></column>
         </property>  
     </class>   
 </hibernate-mapping>  
