@@ -23,10 +23,20 @@
       font-size: 14px;
     }
   </style>
+  <script src="assets/js/jquery-3.0.0.min.js"></script>
   <script type="text/javascript">
       function loginSubmit(){
-          alert("提交");
-          document.getElementById("loginSub").submit();
+          /* document.getElementById("loginSub").submit(); */
+          var email = $("#email").val();
+          var password = $("#password").val()
+          $.ajax({
+          	url:"http://localhost:8080/VRF_Manage/Login_login.do",
+          	data:{"email":email,"password":password},
+          	type:"post",
+          	success:function(data){
+          		console.log("----"+data);
+          	}
+          });
       }
   </script>
 </head>
@@ -41,7 +51,7 @@
   <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
     <br>
     <br>
-    <form id="loginSub" action="Login_login.do" method="post" class="am-form">
+    <form id="loginSub" class="am-form">
       <label for="email">邮箱:</label>
       <input class="am-radius" type="email" name="email" id="email" value="">
       <br>

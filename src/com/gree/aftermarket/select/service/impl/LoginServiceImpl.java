@@ -36,4 +36,9 @@ public class LoginServiceImpl extends BaseService<User> implements LoginService{
 			return null;
 		}
 	}
+	@Transactional
+	public void logOut(){
+		
+		System.out.println("退出成功");
+	}
 }

@@ -83,7 +83,7 @@ public class WebBaseAction extends ActionSupport{
 //		ActionContext.getContext().getSession().put("", "");
 		getResponse().setContentType("text/html;charset=utf-8");
 		getResponse().setHeader("Cache-Control", "no-cache");//取消浏览器缓存
-		getResponse().setCharacterEncoding("ute-8");
+		getResponse().setCharacterEncoding("utf-8");
 		PrintWriter pw = getResponse().getWriter();
 		pw.print(json);
 		pw.flush();
@@ -94,9 +94,10 @@ public class WebBaseAction extends ActionSupport{
 	 * @throws IOException 
 	 */
 	public void sendJsonArray(JSONArray jsonArray) throws IOException{
+		
 		getResponse().setContentType("text/html;charset=utf-8");
 		getResponse().setHeader("Cache-Control", "no-cache");//取消浏览器缓存
-		getResponse().setCharacterEncoding("ute-8");
+		getResponse().setCharacterEncoding("utf-8");
 		PrintWriter pw = getResponse().getWriter();
 		pw.print(jsonArray);
 		pw.flush();

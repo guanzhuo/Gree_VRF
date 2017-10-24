@@ -33,13 +33,13 @@ public class CheckFilter implements Filter {
 		// System.out.println(targetURL);
 		// 如果session不为空就返回该session，如果为空就返回null
 		HttpSession session = request.getSession(false);
-		if (!"/login.html".equals(targetURL)) {
+		if (!"/login.jsp".equals(targetURL)) {
 			// 判断当前页面是否是登陆页面，如果是就不做session的判断，防止死循环
 			if (session == null || session.getAttribute("user") == null) {
 				// 如果session为空表示用户没有登陆就重定向到login.jsp页面
 				// System.out.println("request.getContextPath()=" +
 				// request.getContextPath());
-				response.sendRedirect(request.getContextPath() + "/login.html");
+				response.sendRedirect(request.getContextPath() + "/login.jsp");
 				return;
 			}
 		}

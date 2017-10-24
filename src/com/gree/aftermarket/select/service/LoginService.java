@@ -4,4 +4,6 @@ import com.gree.aftermarket.select.bean.User;
 
 public interface LoginService {
     public User loginInfo(String email);
+
+	public void logOut();
 }
