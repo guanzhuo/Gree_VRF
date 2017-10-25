@@ -21,7 +21,8 @@
 		<!-- 告知映射文件 -->
 		<property name="javax.persistence.validation.mode">none</property>
 		<mapping resource="com/gree/aftermarket/select/bean/User.hbm.xml"></mapping>
-		
+		<mapping resource="com/gree/aftermarket/select/bean/Role.hbm.xml"></mapping>
+		<mapping resource="com/gree/aftermarket/select/bean/Permission.hbm.xml"></mapping>
 		
 	</session-factory>
 </hibernate-configuration>  

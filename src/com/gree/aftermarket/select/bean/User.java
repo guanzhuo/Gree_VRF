@@ -1,6 +1,9 @@
 package com.gree.aftermarket.select.bean;
 
-import java.sql.Date;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * @author gz
  * 2017年10月23日上午10:46:29
@@ -17,6 +20,7 @@ public class User {
     private Date createDate;
     private Integer delFlag;//删除标记
     private String customerId;
+    private Set<Role> roleId = new HashSet<Role>();
     
     public User() {
     	super();
@@ -25,8 +29,15 @@ public class User {
     	this.id = id;
     	this.name =name;
     }
-    public User(String id, String name, String email, String pwd, String phone, String address, String creater,
-			Date createDate, Integer delFlag, String customerId) {
+    
+	public Set<Role> getRoleId() {
+		return roleId;
+	}
+	public void setRoleId(Set<Role> roleId) {
+		this.roleId = roleId;
+	}
+	public User(String id, String name, String email, String pwd, String phone, String address, String creater,
+			Date createDate, Integer delFlag, String customerId, Set<Role> roleId) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -38,6 +49,7 @@ public class User {
 		this.createDate = createDate;
 		this.delFlag = delFlag;
 		this.customerId = customerId;
+		this.roleId = roleId;
 	}
 	public User(String name){
     	this.name = name;
@@ -102,6 +114,4 @@ public class User {
 	public void setCustomerId(String customerId) {
 		this.customerId = customerId;
 	}
-	
-    
 }

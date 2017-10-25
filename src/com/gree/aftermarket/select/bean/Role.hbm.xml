@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">  
+<hibernate-mapping package="com.gree.aftermarket.select.bean">  
+     <class name="Role">  
+        <id name="id" type="string">  
+            <column name="id" length="5"></column>
+        </id>
+        <property name="rolename" type="string">
+        	<column name="rolename"  length="40"></column>
+        </property>  
+        <property name="description" type="string">
+        	<column name="description" length="40"></column>
+        </property>  
+        <property name="creater" type="string">
+        	<column name="creater" length="40"></column>
+        </property>  
+        <property name="createDate" type="timestamp">
+        	<column name="createDate"></column>
+        </property>  
+        <property name="lastUpdate" type="string">
+        	<column name="lastUpdate" length="40"></column>
+        </property>  
+        <property name="lastUpdateDate" type="timestamp">
+        	<column name="lastUpdateDate"></column>
+        </property>  
+        <set name="userid" inverse="true" table="user_role">
+        	<key>
+        	    <column name="userid"></column>
+        	</key>
+        	<many-to-many column="id" class="com.gree.aftermarket.select.bean.User"></many-to-many>
+        </set>
+        <set name="permissions" inverse="true" table="role_permission">
+        	<key>
+        	    <column name="permissionid"></column>
+        	</key>
+        	<many-to-many column="id" class="com.gree.aftermarket.select.bean.Permission"></many-to-many>
+        </set>
+    </class>   
+</hibernate-mapping>  

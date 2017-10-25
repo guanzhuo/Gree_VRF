@@ -47,6 +47,9 @@ public class LoginAction extends WebBaseAction{
 			if(user.getPwd().equals(password)){
 			    setAttributeToSession("user", user);
 			    System.out.println("登录成功");
+			    //获取当前登录用户的权限，并进行存放
+			    User users = loginService.userPermission();
+			    setAttributeToSession("users", users);
 			    toPageByForward("index.jsp");
 //			    JSONObject json = new JSONObject();
 //			    json.put("user", user);

@@ -38,7 +38,17 @@ public class LoginServiceImpl extends BaseService<User> implements LoginService{
 	}
 	@Transactional
 	public void logOut(){
-		
 		System.out.println("退出成功");
+	}
+	@Transactional
+	public User userPermission() {
+		// TODO Auto-generated method stub
+		String hql = "select u.id,r.id from User u,Role r,"
+				+ "where u.id=r.userid";
+		List<Object[]> list = baseDao.findByHqL(hql);
+		if(list.size()>0){
+			System.out.println(list.size());
+		}
+		return null;
 	}
 }

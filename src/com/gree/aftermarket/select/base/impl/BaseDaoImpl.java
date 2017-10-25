@@ -65,5 +65,11 @@ public abstract class BaseDaoImpl<K> implements BaseDao<K>{
 		List<K> list = this.getSession().createQuery(sql).list();
 		return list;
 	}
+//	@Override
+	public List findByHqL(String hql) {
+		// TODO Auto-generated method stub
+		List list = this.getSession().createQuery(hql).list();
+		return list;
+	}
 
 }
