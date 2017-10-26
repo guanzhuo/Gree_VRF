@@ -48,7 +48,7 @@ public class LoginServiceImpl extends BaseService<User> implements LoginService{
 	public User userPermission() {
 		// TODO Auto-generated method stub
 		System.out.println(CommonUtil.userid);
-		String hql = "select r.id,u.id,u.roles from User u,Role r";
+		String hql = "select u.id,u.roles from User u";
 		List<Object[]> list = baseDao.findByHqL(hql);
 		
 		if(list.size()>0){
