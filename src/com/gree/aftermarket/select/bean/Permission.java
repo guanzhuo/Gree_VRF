@@ -2,36 +2,35 @@ package com.gree.aftermarket.select.bean;
 
 import java.util.Set;
 
+import javax.persistence.ManyToMany;
+
 public class Permission {
     private String id;
     private String permissionName;//权限名称
     private String description;//描述
     private String parentId;//权限父类ID
     private String url;//对应的界面
-    private Set<Role> roleId;
-	public Permission() {
-		super();
+    private Set<RolePermission> rolePermissions;
+    
+	public Set<RolePermission> getRolePermissions() {
+		return rolePermissions;
 	}
-	
+	public void setRolePermissions(Set<RolePermission> rolePermissions) {
+		this.rolePermissions = rolePermissions;
+	}
 	public Permission(String id, String permissionName, String description, String parentId, String url,
-			Set<Role> roleId) {
+			Set<RolePermission> rolePermissions) {
 		super();
 		this.id = id;
 		this.permissionName = permissionName;
 		this.description = description;
 		this.parentId = parentId;
 		this.url = url;
-		this.roleId = roleId;
+		this.rolePermissions = rolePermissions;
 	}
-
-	public Set<Role> getRoleId() {
-		return roleId;
+	public Permission() {
+		super();
 	}
-
-	public void setRoleId(Set<Role> roleId) {
-		this.roleId = roleId;
-	}
-
 	public String getId() {
 		return id;
 	}

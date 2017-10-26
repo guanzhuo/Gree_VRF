@@ -2,44 +2,45 @@
 <!DOCTYPE hibernate-mapping PUBLIC  
     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">  
-<hibernate-mapping package="com.gree.aftermarket.select.bean">  
-     <class name="User">  
-        <id name="id" type="string">  
-            <column name="id" length="40"></column>
+<hibernate-mapping package="com.gree.aftermarket.select.bean"> 
+     <class name="User">
+        <id name="id" type="string">
+            <column name="id"></column>
             <generator class="uuid.hex"></generator>
-        </id>  
+        </id> 
         <property name="name" type="string">
-        	<column name="name"  length="40"></column>
+        	<column name="name" ></column>
         </property>  
         <property name="email" type="string">
-        	<column name="email" length="40"></column>
+        	<column name="email" ></column>
         </property>  
         <property name="pwd" type="string">
-        	<column name="pwd" length="40"></column>
+        	<column name="pwd" ></column>
         </property>  
         <property name="phone" type="string">
-        	<column name="phone" length="15"></column>
-        </property>  
+        	<column name="phone" ></column>
+        </property> 
         <property name="address" type="string">
-        	<column name="address" length="40"></column>
+        	<column name="address" ></column>
         </property>  
         <property name="creater" type="string">
-        	<column name="creater" length="40"></column>
+        	<column name="creater" ></column>
         </property>  
         <property name="createDate" type="timestamp">
-        	<column name="createDate" length="19" not-null="true"></column>
+        	<column name="createDate" not-null="true"></column>
         </property>  
-        <property name="delFlag" type="int">
-        	<column name="delFlag" length="1"></column>
+        <property name="delFlag" >
+        	<column name="delFlag" ></column>
         </property>  
         <property name="customerId" type="string">
-        	<column name="customerId" length="40"></column>
+        	<column name="customerid" ></column>
         </property>  
-        <set name="roleId" inverse="false" table="user_role" cascade="delete">
+        <!-- <set name="roles" inverse="false" table="user_role" cascade="save-update">
         	<key>
-        	    <column name="userId"></column>
+        	    <column name="userid" not-null="true"></column>
         	</key>
-        	<many-to-many column="roleId" class="com.gree.aftermarket.select.bean.Role"></many-to-many>
-        </set>
+        	<many-to-many column="roleid" class="com.gree.aftermarket.select.bean.Role"></many-to-many>
+        </set> -->
+        <many-to-one name="roles" unique="true" class="Role"></many-to-one>
     </class>   
 </hibernate-mapping>  

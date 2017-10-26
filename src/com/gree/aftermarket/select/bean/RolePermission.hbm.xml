@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.gree.aftermarket.select.bean">
+	<class name="RolePermission">
+		<id name="rp_id">
+			<column name="id" length="5"></column>
+			<generator class="increment" />
+		</id>
+		<property name="parentid" type="string">
+			<column name="parentid" length="5"></column>
+		</property>
+		<many-to-one name="roleid" class="Role" cascade="save-update" insert="false" update="false">
+			<column name="id"></column>
+		</many-to-one>
+		<many-to-one name="permissionid" class="Permission" insert="false" update="false"
+			cascade="save-update">
+			<column name="id"></column>
+		</many-to-one>
+	</class>
+</hibernate-mapping>  

@@ -23,6 +23,7 @@
 		<mapping resource="com/gree/aftermarket/select/bean/User.hbm.xml"></mapping>
 		<mapping resource="com/gree/aftermarket/select/bean/Role.hbm.xml"></mapping>
 		<mapping resource="com/gree/aftermarket/select/bean/Permission.hbm.xml"></mapping>
+		<mapping resource="com/gree/aftermarket/select/bean/RolePermission.hbm.xml"></mapping>
 		
 	</session-factory>
 </hibernate-configuration>  

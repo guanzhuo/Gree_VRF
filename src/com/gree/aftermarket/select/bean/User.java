@@ -4,6 +4,10 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+
 /**
  * @author gz
  * 2017年10月23日上午10:46:29
@@ -20,9 +24,9 @@ public class User {
     private Date createDate;
     private Integer delFlag;//删除标记
     private String customerId;
-    private Set<Role> roleId = new HashSet<Role>();
+    private Role roles;
     
-    public User() {
+	public User() {
     	super();
     }
     public User(String id,String name){
@@ -30,14 +34,11 @@ public class User {
     	this.name =name;
     }
     
-	public Set<Role> getRoleId() {
-		return roleId;
-	}
-	public void setRoleId(Set<Role> roleId) {
-		this.roleId = roleId;
-	}
+	public User(String name){
+    	this.name = name;
+    }
 	public User(String id, String name, String email, String pwd, String phone, String address, String creater,
-			Date createDate, Integer delFlag, String customerId, Set<Role> roleId) {
+			Date createDate, Integer delFlag, String customerId, Role roles) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -49,11 +50,14 @@ public class User {
 		this.createDate = createDate;
 		this.delFlag = delFlag;
 		this.customerId = customerId;
-		this.roleId = roleId;
+		this.roles = roles;
 	}
-	public User(String name){
-    	this.name = name;
-    }
+	public Role getRoles() {
+		return roles;
+	}
+	public void setRoles(Role roles) {
+		this.roles = roles;
+	}
 	public String getId() {
 		return id;
 	}

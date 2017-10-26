@@ -3,28 +3,28 @@
     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">  
 <hibernate-mapping package="com.gree.aftermarket.select.bean">  
-     <class name="Permission">  
+     <class name="Permission">
+     
         <id name="id" type="string">  
-            <column name="id" length="5"></column>
+            <column name="id"></column>
         </id>
         <property name="permissionName" type="string">
-        	<column name="permissionName"  length="40"></column>
+        	<column name="permissionName"></column>
         </property>  
         <property name="description" type="string">
-        	<column name="description" length="40"></column>
+        	<column name="description" ></column>
         </property>  
         <property name="parentId" type="string">
-        	<column name="parentid" length="5"></column>
+        	<column name="parentid"></column>
         </property>  
         <property name="url" type="string">
-        	<column name="url" length="200"></column>
+        	<column name="url" ></column>
         </property>  
-        
-        <set name="roleId" inverse="false" table="role_permission">
+        <set name="rolePermissions" inverse="true" table="role_permission" cascade="save-update">
         	<key>
-        	    <column name="permissionid"></column>
+        	    <column name="permissionid" not-null="true" ></column>
         	</key>
-        	<many-to-many column="id" class="com.gree.aftermarket.select.bean.Role"></many-to-many>
+        	<one-to-many class="com.gree.aftermarket.select.bean.RolePermission"></one-to-many>
         </set>
     </class>   
 </hibernate-mapping>  
