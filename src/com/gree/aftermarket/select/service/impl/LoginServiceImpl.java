@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.gree.aftermarket.select.base.BaseDao;
 import com.gree.aftermarket.select.base.BaseService;
+import com.gree.aftermarket.select.bean.Role;
 import com.gree.aftermarket.select.bean.User;
 import com.gree.aftermarket.select.common.CommonUtil;
 import com.gree.aftermarket.select.dao.UserDao;
@@ -48,14 +49,15 @@ public class LoginServiceImpl extends BaseService<User> implements LoginService{
 	public User userPermission() {
 		// TODO Auto-generated method stub
 		System.out.println(CommonUtil.userid);
-		String hql = "select u.id,u.roles from User u";
+		String hql = "select distinct u.id,u.roles from User u,Role r where u.id='"+CommonUtil.userid+"'";
 		List<Object[]> list = baseDao.findByHqL(hql);
 		
 		if(list.size()>0){
 			System.out.println("++"+list.size());
 			for(Object[] o:list){
-				String roidSql = "select p.id from Permission p ,Role r where r.id = '"+o[0]+"'";
-				List<Object[]> perList = baseDao.findByHqL(roidSql);
+				Role role = ((Role)o[1]);
+				String roleSql = "select r from Role r ";
+				List<Object[]> perList = baseDao.findByHqL(roleSql);
 				if(perList.size()>0){
 				    System.out.println(perList.size());	
 				}

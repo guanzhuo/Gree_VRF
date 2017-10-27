@@ -1,8 +1,8 @@
 package com.gree.aftermarket.select.bean;
 
+import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.ManyToMany;
 
 public class Permission {
     private String id;
@@ -10,7 +10,7 @@ public class Permission {
     private String description;//描述
     private String parentId;//权限父类ID
     private String url;//对应的界面
-    private Set<RolePermission> rolePermissions;
+    private Set<RolePermission> rolePermissions = new HashSet<RolePermission>();
     
 	public Set<RolePermission> getRolePermissions() {
 		return rolePermissions;

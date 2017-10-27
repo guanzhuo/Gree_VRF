@@ -4,10 +4,6 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-
 public class Role {
 	private String id;
 	private String rolename;
@@ -17,7 +13,7 @@ public class Role {
 	private String lastUpdate;
 	private String lastUpdateDate;
 	private User users;
-	private Set<RolePermission> rolePermissions;
+	private Set<RolePermission> rolePermissions = new HashSet<RolePermission>();
 
 	public Role(String id, String rolename, String description, String creater, Date createDate, String lastUpdate,
 			String lastUpdateDate, User users, Set<RolePermission> rolePermissions) {
