@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">  
+<hibernate-mapping package="com.gree.aftermarket.select.bean"> 
+     <class name="User" table="user">
+        <id name="id" type="string">
+            <column name="id"></column>
+            <generator class="uuid.hex"></generator>
+        </id> 
+        <property name="name" type="string">
+        	<column name="name" ></column>
+        </property>  
+        <property name="email" type="string">
+        	<column name="email" ></column>
+        </property>  
+        <property name="pwd" type="string">
+        	<column name="pwd" ></column>
+        </property>  
+        <property name="phone" type="string">
+        	<column name="phone" ></column>
+        </property> 
+        <property name="address" type="string">
+        	<column name="address" ></column>
+        </property>  
+        <property name="creater" type="string">
+        	<column name="creater" ></column>
+        </property>  
+        <property name="createDate" type="timestamp">
+        	<column name="createDate" not-null="true"></column>
+        </property>  
+        <property name="delFlag" >
+        	<column name="delFlag" ></column>
+        </property>  
+        <property name="customerId" type="string">
+        	<column name="customerid" ></column>
+        </property>  
+        <!-- <set name="roles" inverse="false" table="user_role" cascade="save-update">
+        	<key>
+        	    <column name="userid" not-null="true"></column>
+        	</key>
+        	<many-to-many column="roleid" class="com.gree.aftermarket.select.bean.Role"></many-to-many>
+        </set> -->
+        <many-to-one name="roles" column="roleid" class="Role"></many-to-one>
+    </class>   
+</hibernate-mapping>  

@@ -41,6 +41,6 @@
         	</key>
         	<many-to-many column="roleid" class="com.gree.aftermarket.select.bean.Role"></many-to-many>
         </set> -->
-        <many-to-one name="roles" column="roleid" unique="true" class="Role"></many-to-one>
+        <many-to-one name="roles" column="roleid" class="Role"></many-to-one>
     </class>   
 </hibernate-mapping>  

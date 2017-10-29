@@ -11,11 +11,10 @@
 		<property name="parentid" type="string">
 			<column name="parentid" length="5"></column>
 		</property>
-		<many-to-one name="roleid" class="Role" cascade="save-update" update="false" insert="false">
+		<many-to-one name="roleid" class="Role" cascade="save-update" update="false" insert="false" lazy="false">
 			<column name="id" />
 		</many-to-one>
-		<many-to-one name="permissionid" class="Permission" update="false" insert="false"  
-			cascade="save-update">
+		<many-to-one name="permissionid" class="Permission" update="false" insert="false" lazy="false" cascade="save-update">
 			<column name="id"/>
 		</many-to-one>
 	</class>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">  
+<hibernate-mapping package="com.gree.aftermarket.select.bean">  
+     <class name="Permission" table="permission">
+        <id name="id" type="string">  
+            <column name="id"></column>
+        </id>
+        <property name="permissionName" type="string">
+        	<column name="permissionName"></column>
+        </property>  
+        <property name="description" type="string">
+        	<column name="description" ></column>
+        </property>  
+        <property name="parentId" type="string">
+        	<column name="parentid"></column>
+        </property>  
+        <property name="url" type="string">
+        	<column name="url" ></column>
+        </property>  
+        <set name="permissionRole" inverse="true" table="role_permission" cascade="save-update">
+        	<key>
+        	    <column name="permissionid" ></column>
+        	</key>
+        	<one-to-many class="com.gree.aftermarket.select.bean.RolePermission"></one-to-many>
+        </set>
+    </class>   
+</hibernate-mapping>  

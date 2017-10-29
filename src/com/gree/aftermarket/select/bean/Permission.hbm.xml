@@ -19,7 +19,7 @@
         <property name="url" type="string">
         	<column name="url" ></column>
         </property>  
-        <set name="rolePermissions" inverse="true" table="role_permission" cascade="save-update">
+        <set name="permissionRole" inverse="true" table="role_permission" cascade="save-update">
         	<key>
         	    <column name="permissionid" ></column>
         	</key>

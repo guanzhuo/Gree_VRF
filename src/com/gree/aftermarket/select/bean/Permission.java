@@ -10,23 +10,23 @@ public class Permission {
     private String description;//描述
     private String parentId;//权限父类ID
     private String url;//对应的界面
-    private Set<RolePermission> rolePermissions = new HashSet<RolePermission>();
+    private Set<RolePermission> permissionRole = new HashSet<RolePermission>();
     
-	public Set<RolePermission> getRolePermissions() {
-		return rolePermissions;
+	public Set<RolePermission> getPermissionRole() {
+		return permissionRole;
 	}
-	public void setRolePermissions(Set<RolePermission> rolePermissions) {
-		this.rolePermissions = rolePermissions;
+	public void setPermissionRole(Set<RolePermission> permissionRole) {
+		this.permissionRole = permissionRole;
 	}
 	public Permission(String id, String permissionName, String description, String parentId, String url,
-			Set<RolePermission> rolePermissions) {
+			Set<RolePermission> permissionRole) {
 		super();
 		this.id = id;
 		this.permissionName = permissionName;
 		this.description = description;
 		this.parentId = parentId;
 		this.url = url;
-		this.rolePermissions = rolePermissions;
+		this.permissionRole = permissionRole;
 	}
 	public Permission() {
 		super();

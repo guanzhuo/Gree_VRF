@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">  
+<hibernate-mapping package="com.gree.aftermarket.select.bean">  
+     <class name="Role" table="role">  
+        <id name="id" type="string">  
+            <column name="id" ></column>
+        </id>
+        <property name="rolename" type="string">
+        	<column name="roleName" ></column>
+        </property>  
+        <property name="description" type="string">
+        	<column name="description" ></column>
+        </property>  
+        <property name="creater" type="string">
+        	<column name="creater" ></column>
+        </property>  
+        <property name="createDate" type="timestamp">
+        	<column name="createDate"></column>
+        </property>  
+        <property name="lastUpdate" type="string">
+        	<column name="lastUpdate" ></column>
+        </property>  
+        <property name="lastUpdateDate" type="timestamp">
+        	<column name="lastUpdateDate"></column>
+        </property> 
+        <!-- <set name="users" inverse="true" table="user_role" cascade="save-update">
+        	<key>
+        	    <column name="roleid"></column>
+        	</key>
+        	<many-to-many column="userid" class="com.gree.aftermarket.select.bean.User"></many-to-many>
+        </set> -->
+        <one-to-one name="users"></one-to-one>
+        <set name="rolePermissions" inverse="true" table="role_permission" cascade="save-update">
+        	<key>
+        	    <column name="roleid"></column>
+        	</key>
+        	<one-to-many class="com.gree.aftermarket.select.bean.RolePermission"></one-to-many>
+        </set>
+    </class>   
+</hibernate-mapping>  

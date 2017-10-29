@@ -6,8 +6,6 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.apache.jasper.tagplugins.jstl.core.If;
-import org.eclipse.jdt.internal.compiler.env.IGenericField;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -56,10 +54,14 @@ public class LoginServiceImpl extends BaseService<User> implements LoginService{
 			System.out.println("++"+list.size());
 			for(Object[] o:list){
 				Role role = ((Role)o[1]);
-				String roleSql = "select r from Role r ";
+				String roleSql = "select r,p from Role r,Permission p,RolePermission rp where r.id="+role.getId()+" and r.id = rp.roleid and rp.permissionid=p.id";
 				List<Object[]> perList = baseDao.findByHqL(roleSql);
+				
+				String teString = "select r.id,p.id from Role r,Permission p,RolePermission rp where r.id="+role.getId()+" and r.id = rp.roleid and p.id=1002";
+				List<Object[]> perLists = baseDao.findByHqL(teString);
+				
 				if(perList.size()>0){
-				    System.out.println(perList.size());	
+				    System.out.println("=="+perList.size());	
 				}
 			}
 		}
