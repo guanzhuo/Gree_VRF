@@ -1,0 +1,152 @@
+@CHARSET "UTF-8";
+
+
+.tpl-portlet-components {
+    border: 1px solid #e7ecf1;
+    padding: 12px 9px 15px;
+    background-color: #fff;
+    margin-top: 0;
+    margin-bottom: 25px;
+    overflow: hidden;
+}
+
+
+.tpl-portlet-components .portlet-title {
+    border-bottom: 1px solid #eef1f5;
+    padding: 0;
+    min-height: 48px;
+    margin-bottom: 10px;
+}
+
+.tpl-fz-ml {
+    margin-left: 30px;
+}
+
+
+.tpl-portlet-input {
+    float: right;
+    display: inline-block;
+    padding: 4px 0;
+}
+
+.input-small {
+    width: 145px!important;
+}
+
+.input-inline {
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+}
+
+.input-icon {
+    position: relative;
+    left: 0;
+}
+
+.input-icon.right {
+    left: auto;
+    right: 0;
+}
+
+
+.input-icon i {
+    font-size: 14px;
+    margin-top: 9px;
+}
+
+.input-icon>i {
+    color: #ff7f00;
+    position: absolute;
+    margin-top: 2px;
+    z-index: 3;
+    width: 16px;
+    font-size: 16px;
+    text-align: center;
+    left: 0;
+    left: auto;
+    right: 8px;
+    float: right;
+    top: 0.3rem;
+    font-family: 'my_font';
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857;
+    color: #4d6b8a;
+    background-color: #fff;
+    background-image: none;
+	border: 1px solid rgba(243, 123, 29, 0.28);
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    outline: none;
+}
+
+.form-control {
+    height: 30px;
+    padding: 2px 26px 3px 10px;
+    font-size: 13px;
+}
+
+
+.tpl-block {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 18px;
+}
+
+.add-user-prompt-title{
+	text-align: left;
+	font-size: 1.6rem;
+	font-family: 'my_font';
+	color: #666666;
+}
+
+.add-user-prompt-info{
+	text-align: left;
+	font-size: 1.6rem;
+	font-family: 'my_font';
+	color: #666666;
+	margin-left:3rem;
+	border-bottom: 0px solid #dedede;
+	padding: 0px;
+}
+
+
+/* .am-selected{
+	width:80%;
+} */
+/* 上一页  下一页 */
+.am-pagination>.am-active>a,.am-pagination>.am-active>a:focus,.am-pagination>.am-active>a:hover,.am-pagination>.am-active>span,.am-pagination>.am-active>span:focus,.am-pagination>.am-active>span:hover
+	{
+	font-size: 16px;
+	z-index: 2;
+	color: #666666;
+	background-color: rgba(243, 123, 29, 0.5);
+	border-color: rgba(243, 123, 29, 0.5);
+	cursor: default;
+	font-family: 'my_font';
+}
+
+.am-pagination>.am-disabled>a,.am-pagination>.am-disabled>a:focus,.am-pagination>.am-disabled>a:hover,.am-pagination>.am-disabled>span,.am-pagination>.am-disabled>span:focus,.am-pagination>.am-disabled>span:hover
+	{
+	font-size: 16px;
+	color: #999;
+	background-color: #fff;
+	border-color: #ddd;
+	cursor: not-allowed;
+	pointer-events: none;
+	font-family: 'my_font';
+}
+
+
+

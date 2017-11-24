@@ -8,6 +8,7 @@
             <column name="id"></column>
             <generator class="uuid.hex"></generator>
         </id> 
+        
         <property name="name" type="string">
         	<column name="name" ></column>
         </property>  

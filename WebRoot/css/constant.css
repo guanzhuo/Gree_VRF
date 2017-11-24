@@ -1,0 +1,79 @@
+@CHARSET "UTF-8";
+
+@font-face {
+    font-family: 'Federation';
+    src: url('../assets/fonts/fe.ttf');
+}
+
+/* 网页字体 */
+@font-face {
+    font-family: 'my_font';
+    src: url('../assets/fonts/HelveticaNeueLTPro-Roman.otf');
+}
+
+/* 主色 */
+.main_colors_bg{
+	background: #ff7f00;
+}
+
+/* 图标颜色 */
+.icon_colors{
+	color: #ff7f00;
+}
+
+/*  网页内容字体颜色*/
+.font_colors_constant{
+	/* color: #666666; */
+	color: #5A6175;
+	font-family: 'my_font';
+}
+
+/*  网页内容字体颜色*/
+.font_colors_constant_14{
+	/* color: #666666; */
+	color: #5A6175;
+	font-size:14px;
+}
+
+/* 字体颜色 、大小*/
+.font_colors_constant_16{
+	font-size:16px;
+	color: #5A6175;
+	font-family: 'my_font';
+/* 	color: #666666; */
+}
+
+/* 可点击字体颜色 、大小*/
+.font_click_colors_16{
+	font-size:16px;
+	color: #ff7f00;
+	font-family: 'my_font';
+/* 	color: #666666; */
+}
+
+/* 字体颜色  登录页底部*/
+.font_colors{
+	color: #ff7f00;
+}
+
+/* 字体颜色 、大小*/
+.font_colors_16px{
+	font-size:16px;
+	color: #ff7f00;
+	font-family: 'my_font';
+}
+
+/* 提示信息，字体颜色 */
+.font_colors_warn{
+	color:red;
+	font-size:18px;
+	font-family: 'my_font';
+}
+
+.font_editTitle_color_16{
+	font-size:18px;
+	color:#0e90d2;
+	font-family: 'my_font';
+/* 	color: #666666; */
+}
+

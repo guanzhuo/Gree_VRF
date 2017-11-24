@@ -1,0 +1,236 @@
+@CHARSET "UTF-8";
+
+.tpl-portlet-components {
+    border: 1px solid #e7ecf1;
+    padding: 12px 9px 15px;
+    background-color: #fff;
+    margin-top: 0;
+    margin-bottom: 25px;
+    overflow: hidden;
+}
+
+
+.tpl-portlet-components .portlet-title {
+    border-bottom: 1px solid #eef1f5;
+    padding: 0;
+    min-height: 48px;
+    margin-bottom: 10px;
+}
+
+/* --------------搜索 */
+.tpl-fz-ml {
+    margin-left: 30px;
+}
+
+
+.tpl-portlet-input {
+    float: right;
+    display: inline-block;
+    padding: 4px 0;
+}
+
+
+
+.input-small {
+    width: 145px!important;
+}
+
+.input-inline {
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+}
+
+.input-icon {
+    position: relative;
+    left: 0;
+}
+
+.input-icon.right {
+    left: auto;
+    right: 0;
+}
+
+
+.input-icon i {
+    font-size: 14px;
+    margin-top: 9px;
+}
+
+.input-icon>i {
+    color: #ff7f00;
+    position: absolute;
+    margin-top: 2px;
+    z-index: 3;
+    width: 16px;
+    font-size: 16px;
+    text-align: center;
+    left: 0;
+    left: auto;
+    right: 8px;
+    float: right;
+    top: 0.3rem;
+    font-family: 'my_font';
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857;
+    color: #4d6b8a;
+    background-color: #fff;
+    background-image: none;
+	border: 1px solid rgba(243, 123, 29, 0.28);
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    outline: none;
+}
+
+.form-control {
+    height: 30px;
+    padding: 2px 26px 3px 10px;
+    font-size: 13px;
+}
+
+/* 搜索 --------------*/
+
+
+
+
+/**
+
+---------------方案
+*/
+
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.tpl-task-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tpl-task-list li {
+    position: relative;
+    padding: 10px!important;
+    border-bottom: 1px solid #F4F6F9;
+    height: auto!important;
+    font-size: 18px!important;
+    line-height: 22px!important;
+}
+
+.tpl-task-remind {}
+
+.tpl-task-remind li {
+    /* color: #82949a; */
+    color: #666666;
+    margin: 7px;
+    font-family: 'my_font';
+}
+
+.tpl-task-remind li .cosA {
+    margin-right: 200px;
+}
+
+/*日期  */
+.tpl-task-remind li .cosB {
+    float: right;
+   /*  width: 75px; */
+    margin-left: -75px;
+    text-align: right;
+    font-style: italic;
+    color: #c1cbd0;
+    font-family: 'my_font';
+    font-size: 18px;
+}
+/* 日期带背景的 */
+.tpl-label-time {
+    padding: 2px 5px;
+    /* background-color: #36c6d3;
+    color: #fff; */
+    line-height: 3rem;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+    font-family: 'my_font';
+}
+
+
+.tpl-task-remind li .cosA .cosIcon {
+    display: inline-block;
+    width: 33px;
+    height: 33px;
+    vertical-align: middle;
+    color: #ff7f00;
+    text-align: center;
+    border-radius: 3px;
+    background-color: #fff;
+    padding-top: 0.5rem;
+    border: 1px solid #dde2e2;
+}
+
+.tpl-label-title
+{
+    margin-left: 1rem;
+    
+    }
+
+.tpl-label-author {
+    font-size: 16px;
+    padding: 2px 5px;
+   /*  background-color: #659be0; */
+    color: #659be0;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+    font-family: 'my_font';
+    margin-left: 2rem;
+}
+
+.tpl-task-list li:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+/**
+
+方案---------------
+*/
+
+
+/* 上一页  下一页 */
+.am-pagination>.am-active>a,.am-pagination>.am-active>a:focus,.am-pagination>.am-active>a:hover,.am-pagination>.am-active>span,.am-pagination>.am-active>span:focus,.am-pagination>.am-active>span:hover
+	{
+	font-size: 16px;
+	z-index: 2;
+	color: #666666;
+	background-color: rgba(243, 123, 29, 0.5);
+	border-color: rgba(243, 123, 29, 0.5);
+	cursor: default;
+	font-family: 'my_font';
+}
+
+.am-pagination>.am-disabled>a,.am-pagination>.am-disabled>a:focus,.am-pagination>.am-disabled>a:hover,.am-pagination>.am-disabled>span,.am-pagination>.am-disabled>span:focus,.am-pagination>.am-disabled>span:hover
+	{
+	font-size: 16px;
+	color: #999;
+	background-color: #fff;
+	border-color: #ddd;
+	cursor: not-allowed;
+	pointer-events: none;
+	font-family: 'my_font';
+}
+

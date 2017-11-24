@@ -50,7 +50,7 @@ public class LoginAction extends WebBaseAction{
 			    //获取当前登录用户的权限，并进行存放
 			    User users = loginService.userPermission();
 			    setAttributeToSession("users", users);
-			    toPageByForward("index.jsp");
+			    toPageByForward("page/homePage.jsp");
 //			    JSONObject json = new JSONObject();
 //			    json.put("user", user);
 //			    sendJson(json);
@@ -66,17 +66,17 @@ public class LoginAction extends WebBaseAction{
 			}else{
 				getRequest().setAttribute("errorMSG", "密码错误");
 				System.out.println("密码错误");
-				toPageByForward("login.jsp");
+				toPageByForward("loginPage.jsp");
 			}
 		}else{
 			getRequest().setAttribute("errorMSG", "用户不存在");
 			System.out.println("用户名不存在");
-			toPageByForward("login.jsp");
+			toPageByForward("loginPage.jsp");
 		}
 	}
 	public void logOut() throws ServletException, IOException{
 //		loginService.logOut();
 		getRequest().getSession().invalidate();
-		toPageByForward("login.jsp");
+		toPageByForward("loginPage.jsp");
 	}
 }

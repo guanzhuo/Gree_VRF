@@ -5,4 +5,5 @@ import com.gree.aftermarket.select.bean.User;
 
 public interface UserDao extends BaseDao<User>{
 
+	
 }
