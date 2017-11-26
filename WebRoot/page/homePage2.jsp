@@ -169,7 +169,7 @@
                     </li>-->
 
 					<!-- 退出 -->
-					<li class="am-text-sm"><a href="javascript:;"
+					<li class="am-text-sm"><a href="Login_logOut.do"
 						class="font_colors_constant_14"> <span
 							class="am-icon-sign-out am-icon-sm icon_colors"></span> 退出
 					</a></li>

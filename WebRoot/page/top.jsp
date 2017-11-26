@@ -162,7 +162,7 @@
                     </li>-->
 
 					<!-- 退出 -->
-					<li class="am-text-sm"><a href="javascript:;"
+					<li class="am-text-sm"><a href="#" onclick="logOut()"
 						class="font_colors_constant_14"> <span
 							class="am-icon-sign-out am-icon-sm icon_colors"></span> 退出
 					</a></li>
@@ -172,5 +172,21 @@
 
 		</header>
 </body>
+<script type="text/javascript">
+	function logOut(){
+		$.ajax({
+            url: "Login_logOut.do",
+            datatype: "html",
+            success: function (context) {
+                LogoutReturn("success");
+            }
+        });
+	}
+	function LogoutReturn(context) {
+        if (context == "success") {
+            location.replace('loginPage.jsp');
+        }
+    }
+</script>
 </html>
 

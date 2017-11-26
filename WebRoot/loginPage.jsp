@@ -73,6 +73,7 @@
 						<input type="submit" value="LOGIN"
 							class="btn btn-primary main_colors_bg">
 					</div>
+					<input type="hidden" name="token" value="${isFirst}">
 				</form>
 				<!-- END Sign In Form -->
 
