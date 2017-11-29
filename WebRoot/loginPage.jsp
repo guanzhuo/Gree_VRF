@@ -23,6 +23,11 @@
 <!--[if lt IE 9]-->
 <script src="assets/js/respond.min.js"></script>
 <!-- [endif] -->
+<script type="text/javascript">
+	function submitLogin(){
+		document.getElementById("login_from").submit();
+	}
+</script>
 
 <title>LoginPage</title>
 </head>
@@ -41,7 +46,7 @@
 		<div class="row" style="margin-top: 2%;">
 			<div class="col-md-4 col-md-offset-4">
 				<!-- Start Sign In Form -->
-				<form action="Login_login.do" method="post"
+				<form id="login_from" action="Login_login.do" method="post"
 					class="fh5co-form animate-box">
 					<h4 class="form_text"></h4>
 					<div class="form-group">
@@ -70,10 +75,10 @@
 						</p>
 					</div>  -->
 					<div class="form-group">
-						<input type="submit" value="LOGIN"
+						<input type="submit" value="LOGIN" onclick="submitLogin()"
 							class="btn btn-primary main_colors_bg">
 					</div>
-					<input type="hidden" name="token" value="${isFirst}">
+					
 				</form>
 				<!-- END Sign In Form -->
 
