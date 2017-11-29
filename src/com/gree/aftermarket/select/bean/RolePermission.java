@@ -9,6 +9,9 @@ public class RolePermission {
 	public String getParentid() {
 		return parentid;
 	}
+	public RolePermission() {
+		super();
+	}
 	public void setParentid(String parentid) {
 		this.parentid = parentid;
 	}

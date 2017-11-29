@@ -5,11 +5,11 @@ import java.util.List;
 public interface BaseDao<K> {
 	public void save(K k);
 
-	public void delete(K k);
+	public void delete(long id);
 
 	public void update(K k);
 
-	public List<K> getById();
+	public K getById(long id);
 
 	public List<K> findAll(String hql);
 	

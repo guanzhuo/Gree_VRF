@@ -2,6 +2,7 @@ package com.gree.aftermarket.select.action;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import javax.annotation.Resource;
 import javax.servlet.ServletException;
@@ -9,6 +10,7 @@ import javax.servlet.ServletException;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import com.gree.aftermarket.select.base.WebBaseAction;
+import com.gree.aftermarket.select.bean.Permission;
 import com.gree.aftermarket.select.bean.User;
 import com.gree.aftermarket.select.service.LoginService;
 
@@ -40,8 +42,6 @@ public class LoginAction extends WebBaseAction {
 	private LoginService loginService;
 
 	public String execute() throws Exception {
-		// System.out.println("---------->TestAction execute()"+email+password);
-		// loginService.loginInfo(email, password);
 		System.out.println("execute");
 		return "success";
 	}
@@ -54,8 +54,8 @@ public class LoginAction extends WebBaseAction {
 				setAttributeToSession("user", user);
 				System.out.println("登录成功");
 				// 获取当前登录用户的权限，并进行存放
-				User users = loginService.userPermission();
-				setAttributeToSession("users", users);
+				List<Permission> per = loginService.userPermission();
+				setAttributeToSession("permission", per);
 				getResponse().setHeader("Cache-Control", "no-cache");
 				// Directs caches not to store the page under any circumstance
 				getResponse().setHeader("Cache-Control", "no-store");

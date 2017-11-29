@@ -42,27 +42,32 @@ public abstract class BaseDaoImpl<K> implements BaseDao<K>{
 	}
 
 	@Override
-	public void delete(K k) {
+	public void delete(long id) {
 		// TODO Auto-generated method stub
-		
+		Object object = getById(id);
+        if(object != null){
+           getSession().delete(object);
+        }
 	}
 
 	@Override
 	public void update(K k) {
-		// TODO Auto-generated method stub
 		
 	}
-
 	@Override
-	public List<K> getById() {
+	public K getById(long id) {
 		// TODO Auto-generated method stub
-		return null;
+		if(id != 0){
+			return (K)getSession().get(clazz, id);
+		}else{
+			return null;
+		}
 	}
 
 	@Override
-	public List<K> findAll(String sql) {
+	public List<K> findAll(String hql) {
 		// TODO Auto-generated method stub
-		List<K> list = this.getSession().createQuery(sql).list();
+		List<K> list = this.getSession().createQuery(hql).list();
 		return list;
 	}
 //	@Override
