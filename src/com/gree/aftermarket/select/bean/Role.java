@@ -11,12 +11,12 @@ public class Role {
 	private String creater;
 	private Date createDate;
 	private String lastUpdate;
-	private String lastUpdateDate;
+	private Date lastUpdateDate;
 	private User users;
 	private Set<RolePermission> rolePermissions = new HashSet<RolePermission>();
 
 	public Role(String id, String rolename, String description, String creater, Date createDate, String lastUpdate,
-			String lastUpdateDate, User users, Set<RolePermission> rolePermissions) {
+			Date lastUpdateDate, User users, Set<RolePermission> rolePermissions) {
 		super();
 		this.id = id;
 		this.rolename = rolename;
@@ -29,21 +29,17 @@ public class Role {
 		this.rolePermissions = rolePermissions;
 	}
 
-
 	public Set<RolePermission> getRolePermissions() {
 		return rolePermissions;
 	}
-
 
 	public void setRolePermissions(Set<RolePermission> rolePermissions) {
 		this.rolePermissions = rolePermissions;
 	}
 
-
 	public Role() {
 		super();
 	}
-
 
 	public User getUsers() {
 		return users;
@@ -52,7 +48,6 @@ public class Role {
 	public void setUsers(User users) {
 		this.users = users;
 	}
-
 
 	public String getId() {
 		return id;
@@ -72,6 +67,14 @@ public class Role {
 
 	public String getDescription() {
 		return description;
+	}
+
+	public Date getLastUpdateDate() {
+		return lastUpdateDate;
+	}
+
+	public void setLastUpdateDate(Date lastUpdateDate) {
+		this.lastUpdateDate = lastUpdateDate;
 	}
 
 	public void setDescription(String description) {
@@ -102,11 +105,4 @@ public class Role {
 		this.lastUpdate = lastUpdate;
 	}
 
-	public String getLastUpdateDate() {
-		return lastUpdateDate;
-	}
-
-	public void setLastUpdateDate(String lastUpdateDate) {
-		this.lastUpdateDate = lastUpdateDate;
-	}
 }

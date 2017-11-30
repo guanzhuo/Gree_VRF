@@ -26,38 +26,42 @@
 <body>
 
 
-	
-		<!-- 头部 -->
-		<header class="admin-header topbar"> <!-- logo -->
-		<div class="am-fl tpl-header-logo">
-			<a href="javascript:;"><img src="./image/logo.png" alt=""></a>
-		</div>
-		<!-- 右侧内容 -->
-		<div class="tpl-header-fluid">
-			<!-- 侧边切换 -->
-			<!-- <div class="am-fl tpl-header-switch-button am-icon-list">
+
+	<!-- 头部 -->
+	<header class="admin-header topbar"> <!-- logo -->
+	<div class="am-fl tpl-header-logo">
+		<a href="javascript:;">
+			<img src="./image/logo.png" alt="">
+		</a>
+	</div>
+	<!-- 右侧内容 -->
+	<div class="tpl-header-fluid">
+		<!-- 侧边切换 -->
+		<!-- <div class="am-fl tpl-header-switch-button am-icon-list">
                     <span>
 
                 </span>
             </div> -->
-			<!-- 搜索 -->
-			<!--<div class="am-fl tpl-header-search">
+		<!-- 搜索 -->
+		<!--<div class="am-fl tpl-header-search">
                 <form class="tpl-header-search-form" action="javascript:;">
                     <button class="tpl-header-search-btn am-icon-search"></button>
                     <input class="tpl-header-search-box" type="text" placeholder="搜索内容...">
                 </form>
             </div>-->
-			<!-- 其它功能-->
-			<div class="am-fr tpl-header-navbar">
-				<ul>
-					<!-- 欢迎语 -->
-					<li class="am-text-sm tpl-header-navbar-welcome"><a
-						href="javascript:;" class="font_colors_constant_14">欢迎你, <span
-							class="font_colors_constant_14">${user.name }</span>
-					</a></li>
+		<!-- 其它功能-->
+		<div class="am-fr tpl-header-navbar">
+			<ul>
+				<!-- 欢迎语 -->
+				<li class="am-text-sm tpl-header-navbar-welcome">
+					<a href="javascript:;" class="font_colors_constant_14">
+						欢迎你,
+						<span class="font_colors_constant_14">${user.name }</span>
+					</a>
+				</li>
 
-					<!-- 新邮件 -->
-					<!--<li class="am-dropdown tpl-dropdown" data-am-dropdown>
+				<!-- 新邮件 -->
+				<!--<li class="am-dropdown tpl-dropdown" data-am-dropdown>
                         <a href="javascript:;" class="am-dropdown-toggle tpl-dropdown-toggle" data-am-dropdown-toggle>
                             <i class="am-icon-envelope"></i>
                             <span class="am-badge am-badge-success am-round item-feed-badge">4</span>
@@ -161,32 +165,34 @@
                         </ul>
                     </li>-->
 
-					<!-- 退出 -->
-					<li class="am-text-sm"><a href="#" onclick="logOut()"
-						class="font_colors_constant_14"> <span
-							class="am-icon-sign-out am-icon-sm icon_colors"></span> 退出
-					</a></li>
-				</ul>
-			</div>
+				<!-- 退出 -->
+				<li class="am-text-sm">
+					<a href="#" onclick="logOut()" class="font_colors_constant_14">
+						<span class="am-icon-sign-out am-icon-sm icon_colors"></span>
+						退出
+					</a>
+				</li>
+			</ul>
 		</div>
+	</div>
 
-		</header>
+	</header>
 </body>
 <script type="text/javascript">
-	function logOut(){
+	function logOut() {
 		$.ajax({
-            url: "Login_logOut.do",
-            datatype: "html",
-            success: function (context) {
-                LogoutReturn("success");
-            }
-        });
+			url : "Login_logOut.do",
+			datatype : "html",
+			success : function(context) {
+				LogoutReturn("success");
+			}
+		});
 	}
 	function LogoutReturn(context) {
-        if (context == "success") {
-            location.replace('loginPage.jsp');
-        }
-    }
+		if (context == "success") {
+			location.replace('loginPage.jsp');
+		}
+	}
 </script>
 </html>
 

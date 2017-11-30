@@ -1,10 +1,12 @@
 package com.gree.aftermarket.select.action;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.Resource;
+import javax.enterprise.inject.New;
 import javax.servlet.ServletException;
 
 import org.springframework.context.annotation.Scope;
@@ -21,6 +23,23 @@ import net.sf.json.JSONObject;
 public class LoginAction extends WebBaseAction {
 	private String email;
 	private String password;
+	private List<Permission> permissions;
+	
+	public List<Permission> getPermissions() {
+		return permissions;
+	}
+
+	public void setPermissions(List<Permission> permissions) {
+		this.permissions = permissions;
+	}
+
+	public LoginService getLoginService() {
+		return loginService;
+	}
+
+	public void setLoginService(LoginService loginService) {
+		this.loginService = loginService;
+	}
 
 	public String getEmail() {
 		return email;
@@ -53,9 +72,6 @@ public class LoginAction extends WebBaseAction {
 			if (user.getPwd().equals(password)) {
 				setAttributeToSession("user", user);
 				System.out.println("登录成功");
-				// 获取当前登录用户的权限，并进行存放
-				List<Permission> per = loginService.userPermission();
-				setAttributeToSession("permission", per);
 				getResponse().setHeader("Cache-Control", "no-cache");
 				// Directs caches not to store the page under any circumstance
 				getResponse().setHeader("Cache-Control", "no-store");
@@ -86,7 +102,15 @@ public class LoginAction extends WebBaseAction {
 			toPageByForward("loginPage.jsp");
 		}
 	}
-
+	
+	public List<Permission> getPer(){
+		// 获取当前登录用户的权限，并进行存放
+		permissions = loginService.userPermission();
+		setAttributeToSession("permissions", permissions);
+		System.out.println("permission.........");
+		return permissions;
+	}
+	
 	public void logOut() throws ServletException, IOException {
 		// loginService.logOut();
 		getSession().removeAttribute("users");
