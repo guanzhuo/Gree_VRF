@@ -27,6 +27,6 @@ public class AccountServiceImpl extends BaseService<User> implements AccountServ
 		String queryUser = "from User u where u.creater='"+id+"'";
 		List<User> list = userDao.findAll(queryUser);
 		System.out.println(list.size());
-		return null;
+		return list;
 	}
 }

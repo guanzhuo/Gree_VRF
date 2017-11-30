@@ -2,7 +2,8 @@
 
 <%
 	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
 <!--  首页-->
@@ -26,9 +27,9 @@
 <link rel="stylesheet" type="text/css" href="<%=path%>/assets/css/admin.css">
 <link rel="stylesheet" type="text/css" href="<%=path%>/assets/css/app.css">
 <link rel="stylesheet" type="text/css" href="<%=path%>/assets/css/fullcalendar.min.css">
+<link rel="stylesheet" type="text/css" href="<%=path%>/assets/css/jquery.dataTable.css">
 <link rel="stylesheet" type="text/css" href="<%=path%>/assets/css/fullcalendar.print.css"
 	media='print'>
-<link rel="stylesheet" type="text/css" href="<%=path%>/assets/css/amazeui.datatables.css">
 </head>
 
 <body>
@@ -65,40 +66,74 @@
 							<th>other</th>
 						</tr>
 					</thead>
-					<tbody id="table_tbody">
-
-					</tbody>
+					<tfoot>
+						<tr>
+							<th>name</th>
+							<th>role</th>
+							<th>creatDate</th>
+							<th>other</th>
+							<th>other</th>
+						</tr>
+					</tfoot>
 				</table>
 			</div>
 
 		</div>
 	</div>
 	<script src="<%=path%>/assets/js/jquery.min.js"></script>
+	<script src="<%=path%>/assets/js/jquery.dataTables.js"></script>
 	<script src="<%=path%>/assets/js/moment.js"></script>
 	<script src="<%=path%>/assets/js/amazeui.min.js"></script>
 	<script src="<%=path%>/assets/js/fullcalendar.min.js"></script>
 	<script src="<%=path%>/js/homePage.js"></script>
 	<script src="<%=path%>/js/dataTable.responsive.min.js"></script>
 	<script>
-		$(function() {
-			$("#table_tbody").html("");
-	
-			$.ajax({
-				url : "Account_accountList.do",
-				data : {},
-				datatype : "html",
-				type : "POST",
-				success : function(data) {
-					var html = "<tr><td>张三</td><td>root</td><td>1</td><td>1</td><td>1</td></tr>";
-					$("#table_tbody").append(html);
-					console.log("123");
-				}
-			})
-		});
-		$('#example-r').DataTable({
-			responsive : true,
-			dom : 'ti'
-		});
+
+		$(document).ready(function() {
+							$
+							.ajax({
+								url : "Account_accountList.do",
+								data : {},
+								datatype : "json",
+								type : "POST",
+								success : function(data) {
+									var userList = data.userdata;
+									table_a(data);
+									console.log(userList+"--"+data);
+								}
+							}) 
+						});
+		function table_a(data){
+			//"processing": true,
+				//"ajax" : "Account_accountList.do",
+			$("#example-r").DataTable({
+				"data": data,
+				"column" : [ {
+					"id" : "id"
+				}, {
+					"name" : "name"
+				}, {
+					"3" : "phone"
+				}, {
+					"data" : "address"
+				}, {
+					"data" : "pwd"
+				} ]
+			});
+		}
 	</script>
+	<!-- $("#table_tbody").html("");
+							$
+									.ajax({
+										url : "Account_accountList.do",
+										data : {},
+										datatype : "html",
+										type : "POST",
+										success : function(data) {
+											var html = "<tr><td>张三</td><td>root</td><td>1</td><td>1</td><td>1</td></tr>";
+											$("#table_tbody").append(html);
+											console.log("123");
+										}
+									}) -->
 </body>
 </html>
