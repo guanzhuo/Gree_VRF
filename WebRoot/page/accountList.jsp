@@ -59,20 +59,20 @@
 					id="example-r">
 					<thead>
 						<tr>
+							<th>id</th>
 							<th>name</th>
-							<th>role</th>
-							<th>creatDate</th>
-							<th>other</th>
-							<th>other</th>
+							<th>phone</th>
+							<th>address</th>
+							<th>pwd</th>
 						</tr>
 					</thead>
 					<tfoot>
 						<tr>
+							<th>id</th>
 							<th>name</th>
-							<th>role</th>
-							<th>creatDate</th>
-							<th>other</th>
-							<th>other</th>
+							<th>phone</th>
+							<th>address</th>
+							<th>pwd</th>
 						</tr>
 					</tfoot>
 				</table>
@@ -90,35 +90,34 @@
 	<script>
 
 		$(document).ready(function() {
-							$
-							.ajax({
-								url : "Account_accountList.do",
-								data : {},
-								datatype : "json",
-								type : "POST",
-								success : function(data) {
-									var userList = data.userdata;
-									table_a(data);
-									console.log(userList+"--"+data);
-								}
-							}) 
-						});
+			$.ajax({
+				url : "Account_accountList.do",
+				data : {},
+				dataType : "json",
+				type : "POST",
+				success : function(data) {
+					var userList = data.userdata;
+					var ss = 
+					[{"id":1,"name":"ww","phone":"phone","address":"123","pwd":"222"},
+					{"id":2,"name":"ss","phone":"phone","address":"123","pwd":"222"},
+					{"id":2,"name":"ss","phone":"phone","address":"123","pwd":"222"},
+					{"id":2,"name":"ss","phone":"phone","address":"123","pwd":"222"}];
+					table_a(userList);
+					console.log(ss+"--"+JSON.stringify(userList));
+				}
+			}) 
+		});
 		function table_a(data){
 			//"processing": true,
 				//"ajax" : "Account_accountList.do",
-			$("#example-r").DataTable({
+			$("#example-r").dataTable({
 				"data": data,
-				"column" : [ {
-					"id" : "id"
-				}, {
-					"name" : "name"
-				}, {
-					"3" : "phone"
-				}, {
-					"data" : "address"
-				}, {
-					"data" : "pwd"
-				} ]
+				"columns" : [
+				{"data" : "id"},
+				{"data" : "name"},
+				{"data" : "phone"}, 
+				{"data" : "address"},
+				{"data" : "email"}]
 			});
 		}
 	</script>
