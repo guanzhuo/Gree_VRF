@@ -26,21 +26,14 @@ public class AccountAction extends WebBaseAction{
 	private AccountService accountService;
 	public void accountList() throws IOException {
 		// TODO Auto-generated method stub
-		System.out.println("accountList");
 		List<User> user = accountService.userList(CommonUtil.userid);
 		JSONObject object = new JSONObject();
-		JSONArray array = new JSONArray();
-		Map param = new HashMap();
-		for (int i = 0; i < user.size(); i++) {
-			param.put("id", user.get(i).getId());
-			param.put("name", user.get(i).getName());
-			param.put("address", user.get(i).getName());
-			param.put("pwd", user.get(i).getName());
-			param.put("phone", user.get(i).getName());
-			array.add(param);
-		}
 		object.put("userdata", user);
-		sendJson(object);
-//		sendJsonArray(array);
+		if(user.size()>0){
+			sendJson(object);
+		}else{
+			CommonUtil.log("无数据");
+			sendErrorJson("No Data...");
+		}
 	}
 }

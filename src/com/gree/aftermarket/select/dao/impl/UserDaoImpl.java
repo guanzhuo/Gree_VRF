@@ -23,5 +23,9 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao{
 		// TODO Auto-generated method stub
 		return super.findByHqL(hql);
 	}
+	@Override
+	public List findBySql(String sql) {
+		return super.findBySql(sql);
+	}
 	
 }

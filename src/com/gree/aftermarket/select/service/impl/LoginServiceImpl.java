@@ -57,9 +57,11 @@ public class LoginServiceImpl extends BaseService<User> implements LoginService{
 			System.out.println("++"+list.size());
 			for(Object[] o:list){
 				Role role = ((Role)o[1]);
-				String rtestString = "from Role r left join r.rolePermissions rp where r.id="+role.getId()+"";
+				String str = "select p.* from role_permission as rp right join permission as p "
+						+ "on rp.permissionid = p.id left join role as r on r.id = rp.roleid where r.id = '1'";
+				String rtestString = "select p.id from Permission p,Role r,RolePermission rp where r.id="+role.getId()+" and rp.roleid=r.id and rp.permissionid=p.id";
 //				String ssString = "from Permission p left join p.permissionRole.roleid = 1001";
-				List<Object[]> listss = baseDao.findByHqL(rtestString);
+				List<Object[]> listss = baseDao.findBySql(str);
 //				String roleSql = "from Role r,Permission p,RolePermission rp where r.id="+role.getId()+" and r.id = rp.roleid and rp.permissionid=p.id";
 //				List<Object[]> perList = baseDao.findByHqL(roleSql);
 //				
@@ -70,14 +72,15 @@ public class LoginServiceImpl extends BaseService<User> implements LoginService{
 //				}
 				if(listss.size()>0){
 					for(Object[] obj:listss){
-						RolePermission rolePermission = new RolePermission();
-						rolePermission = (RolePermission) obj[1];
 						Permission permission = new Permission();
-						permission = rolePermission.getPermissionid();
+						permission.setId(obj[0]+"");
+						permission.setPermissionName(obj[1]+"");
+						permission.setDescription(obj[2]+"");
+						permission.setParentId(obj[3]+"");
+						permission.setUrl(obj[4]+"");;
 						per.add(permission);
 					}
 				}
-				System.out.println(per.size());
 			}
 		}
 		return per;

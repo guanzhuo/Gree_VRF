@@ -1,6 +1,7 @@
 package com.gree.aftermarket.select.action;
 
 import java.io.IOException;
+import java.security.Permissions;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,13 +10,16 @@ import javax.annotation.Resource;
 import javax.enterprise.inject.New;
 import javax.servlet.ServletException;
 
+import org.apache.struts2.components.Else;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import com.gree.aftermarket.select.base.WebBaseAction;
 import com.gree.aftermarket.select.bean.Permission;
 import com.gree.aftermarket.select.bean.User;
+import com.gree.aftermarket.select.common.CommonUtil;
 import com.gree.aftermarket.select.service.LoginService;
 
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 @Controller
@@ -23,15 +27,6 @@ import net.sf.json.JSONObject;
 public class LoginAction extends WebBaseAction {
 	private String email;
 	private String password;
-	private List<Permission> permissions;
-	
-	public List<Permission> getPermissions() {
-		return permissions;
-	}
-
-	public void setPermissions(List<Permission> permissions) {
-		this.permissions = permissions;
-	}
 
 	public LoginService getLoginService() {
 		return loginService;
@@ -103,12 +98,42 @@ public class LoginAction extends WebBaseAction {
 		}
 	}
 	
-	public List<Permission> getPer(){
+	public void getPer() throws IOException{
 		// 获取当前登录用户的权限，并进行存放
-		permissions = loginService.userPermission();
-		setAttributeToSession("permissions", permissions);
-		System.out.println("permission.........");
-		return permissions;
+		List<Permission> permissions = loginService.userPermission();
+//		setAttributeToSession("permissions", permissions);
+		Map<String, List<Permission>> perMap = new HashMap<String, List<Permission>>();
+		List<Permission> per1 = new ArrayList<Permission>();
+		List<Permission> per2 = new ArrayList<Permission>();
+		List<Permission> per3 = new ArrayList<Permission>();
+		List<Permission> per4 = new ArrayList<Permission>();
+		for (int i = 0; i < permissions.size(); i++) {
+			CommonUtil.log(permissions.get(i).getId());
+			if(permissions.get(i).getParentId().equals("1")){
+				per1.add(permissions.get(i));
+			}else if(permissions.get(i).getParentId().equals("2")){
+				per2.add(permissions.get(i));
+			}else if(permissions.get(i).getParentId().equals("3")){
+				per3.add(permissions.get(i));
+			}else {
+				per4.add(permissions.get(i));
+			}
+		}
+		perMap.put("1",per1 );	
+		perMap.put("2",per2 );	
+		perMap.put("3", per3);	
+		perMap.put("4", per4);
+		JSONArray jsonArray = JSONArray.fromObject(perMap);
+		sendJsonArray(jsonArray);
+//		JSONObject jsonObject = new JSONObject();
+//		try {
+//			jsonObject.put("per", permissions);
+//			sendJson(jsonObject);
+//		} catch (IOException e) {
+//			CommonUtil.log("permission........."+e.toString());
+//			e.printStackTrace();
+//		}
+//		CommonUtil.log("permission........."+permissions.size());
 	}
 	
 	public void logOut() throws ServletException, IOException {

@@ -14,4 +14,6 @@ public interface BaseDao<K> {
 	public List<K> findAll(String hql);
 	
 	public List findByHqL(String hql);
+	
+	public List findBySql(String sql);
 }

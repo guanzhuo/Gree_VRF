@@ -121,18 +121,5 @@
 			});
 		}
 	</script>
-	<!-- $("#table_tbody").html("");
-							$
-									.ajax({
-										url : "Account_accountList.do",
-										data : {},
-										datatype : "html",
-										type : "POST",
-										success : function(data) {
-											var html = "<tr><td>张三</td><td>root</td><td>1</td><td>1</td><td>1</td></tr>";
-											$("#table_tbody").append(html);
-											console.log("123");
-										}
-									}) -->
 </body>
 </html>

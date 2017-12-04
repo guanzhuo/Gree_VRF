@@ -23,12 +23,81 @@
 </head>
 <script src="<%=path%>/assets/js/jquery.min.js"></script>
 <script>
+	function onClick_u(){
+		console.log("-------"+$(this).html);
+			$(this).siblings('.sidebar-nav-sub').slideToggle(100).end().find(
+					'.sidebar-nav-sub-ico').toggleClass(
+					'sidebar-nav-sub-ico-rotate');
+	}
 	$(function() {
+		function objLength(obj) {
+			var count = 0;
+			for (var i in obj) {
+				count++
+			}
+			return count;
+		}
 		$.ajax({
 			url : "Login_getPer.do",
-			datatype : "html",
+			dataType : "json",
+			type : "POST",
+			data : {},
 			success : function(data) {
-				console.log("22222");
+				console.log(data);
+				console.log(data[0][1]);
+				var perList = data[0];
+				var htmlAll = "";
+				console.log(objLength(perList));
+
+				var parent = "";
+				var html = "";
+				for (var i = 1; i <= objLength(perList); i++) {
+					var ppp = perList[i];
+					if (perList[i].length > 0) {
+						var parentName = "";
+						var child = "";
+						for (var j = 0; j < ppp.length; j++) {
+							var per = ppp[j];
+							child += "<li class='sidebar-nav-link'>" +
+								"<a href='"+per.url+"'>" +
+								"<span class='am-icon-hand-o-right sidebar-nav-link-logo'></span>" +
+								"" + per.description + "</a></li>"
+							parentName = per.parentId;
+						}
+						console.log("==" + child);
+						parent += "<li class='sidebar-nav-link'>" +
+							"<a href='javascript:onClick_u();' class='sidebar-nav-sub-title'>" +
+							"<i class='am-icon-globe am-icon-sm sidebar-nav-link-logo'></i>" + parentName + "" +
+							"<span class='am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico tpl-left-nav-more-ico'>" +
+							"</a><ul class='sidebar-nav-sub sidebar-nav'>" +
+							child +
+							"</ul></li><li class='am-nav-divider'></li>";
+					}
+				}
+
+				console.log(parent);
+				html = parent;
+
+				/* parent+="<li class='sidebar-nav-link'>"+
+					"<a class='sidebar-nav-sub-title'>"+
+					"<i class='am-icon-globe am-icon-sm sidebar-nav-link-logo'></i>区域管理"+
+					"<span class='am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico tpl-left-nav-more-ico'>"
+					"</a><ul class='sidebar-nav sidebar-nav-sub'>"+
+					child+
+					"</ul>"; */
+
+				/* var html="<li class='sidebar-nav-link'>"+
+				"<a class='sidebar-nav-sub-title'>"+
+				"<i class='am-icon-globe am-icon-sm sidebar-nav-link-logo'></i>区域管理"+
+				"<span class='am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico tpl-left-nav-more-ico'>"
+				"</a>"+
+				"<ul class='sidebar-nav sidebar-nav-sub'>"+
+				"<li class='sidebar-nav-link'>"+
+				"<a href=''>"+
+				"<span class='am-icon-hand-o-right sidebar-nav-link-logo'></span>"+
+				"---</a></li>"+
+				"</li>"; */
+				$("#permission_list").append(html);
 			}
 		});
 	});
@@ -66,11 +135,10 @@
 			</div>
 		</div>
 		<!-- 菜单 -->
-		<ul class="sidebar-nav">
+		<ul id="permission_list" class="sidebar-nav">
 			<!-- APP板块 -->
-			<s:iterator value="permission" var="per">
 				<li class="sidebar-nav-link">
-					<a href="javascript:;" class="sidebar-nav-sub-title">
+					<a href="javascript:onClick_u();" class="sidebar-nav-sub-title">
 						<i class="am-icon-mobile am-icon-md sidebar-nav-link-logo"></i>
 						APP管理
 						<span
@@ -80,11 +148,11 @@
 						<li class="sidebar-nav-link">
 							<a href='page/appRegister.jsp'>
 								<span class="am-icon-hand-o-right sidebar-nav-link-logo"></span>
+								App注册
 							</a>
 						</li>
 					</ul>
 				</li>
-			</s:iterator>
 			<li class="am-nav-divider"></li>
 			<!-- 区域管理 -->
 			<li class="sidebar-nav-link">
@@ -160,11 +228,18 @@
 				</ul>
 			</li>
 			<li class="am-nav-divider"></li>
-			<s:iterator value="#request.permissions">
+			
+		</ul>
+	</div>
+	<s:iterator value="#request.permissions">
 				<s:property value="id" />
 			</s:iterator>
 			<s:debug></s:debug>
-		</ul>
-	</div>
 </body>
 </html>
+
+
+
+
+
+
