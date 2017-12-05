@@ -44,7 +44,7 @@
 			<jsp:include flush="true" page="sidebarNav.jsp"></jsp:include>
 
 			<!--  右侧内容-->
-			<div class="tpl-content-wrapper" id="tpl-content-wrapper">
+			<div style="margin-left:295px" class="tpl-content-wrapper" id="tpl-content-wrapper">
 				<div class="tpl-content-page-title">Amaze UI 表单</div>
 				<ol class="am-breadcrumb">
 					<li><a href="#" class="font_click_colors_16"><span

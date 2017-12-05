@@ -1,16 +1,13 @@
 package com.gree.aftermarket.select.action;
 
 import java.io.IOException;
-import java.security.Permissions;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.Resource;
-import javax.enterprise.inject.New;
 import javax.servlet.ServletException;
 
-import org.apache.struts2.components.Else;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import com.gree.aftermarket.select.base.WebBaseAction;
@@ -110,19 +107,25 @@ public class LoginAction extends WebBaseAction {
 		for (int i = 0; i < permissions.size(); i++) {
 			CommonUtil.log(permissions.get(i).getId());
 			if(permissions.get(i).getParentId().equals("1")){
+				permissions.get(i).setParentId(loginService.queryParentLable(permissions.get(i).getParentId()));
 				per1.add(permissions.get(i));
+				
 			}else if(permissions.get(i).getParentId().equals("2")){
+				permissions.get(i).setParentId(loginService.queryParentLable(permissions.get(i).getParentId()));
 				per2.add(permissions.get(i));
 			}else if(permissions.get(i).getParentId().equals("3")){
+				permissions.get(i).setParentId(loginService.queryParentLable(permissions.get(i).getParentId()));
 				per3.add(permissions.get(i));
 			}else {
+				permissions.get(i).setParentId(loginService.queryParentLable(permissions.get(i).getParentId()));
 				per4.add(permissions.get(i));
 			}
 		}
-		perMap.put("1",per1 );	
+		perMap.put("1",per1 );
 		perMap.put("2",per2 );	
 		perMap.put("3", per3);	
 		perMap.put("4", per4);
+		
 		JSONArray jsonArray = JSONArray.fromObject(perMap);
 		sendJsonArray(jsonArray);
 //		JSONObject jsonObject = new JSONObject();

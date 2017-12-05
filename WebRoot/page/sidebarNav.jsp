@@ -24,12 +24,16 @@
 <script src="<%=path%>/assets/js/jquery.min.js"></script>
 <script>
 	function onClick_u(){
-		console.log("-------"+$(this).html);
-			$(this).siblings('.sidebar-nav-sub').slideToggle(100).end().find(
-					'.sidebar-nav-sub-ico').toggleClass(
+	/* 		$(this).siblings('.sidebar-nav-sub').slideToggle(100).end().find(
+					'.sidebar-nav-sub-ico').addClass(
 					'sidebar-nav-sub-ico-rotate');
+					console.log($('.sidebar-nav-sub-ico')); */
 	}
-	$(function() {
+	function click_T(id){
+		$("#span_"+id).toggleClass('sidebar-nav-sub-ico-rotate');
+		$("#ul_"+id).toggleClass('sidebar-nav-sub');
+	}
+	$(document).ready(function() {
 		function objLength(obj) {
 			var count = 0;
 			for (var i in obj) {
@@ -61,15 +65,15 @@
 							child += "<li class='sidebar-nav-link'>" +
 								"<a href='"+per.url+"'>" +
 								"<span class='am-icon-hand-o-right sidebar-nav-link-logo'></span>" +
-								"" + per.description + "</a></li>"
+								"" + per.permissionName + "</a></li>"
 							parentName = per.parentId;
 						}
 						console.log("==" + child);
-						parent += "<li class='sidebar-nav-link'>" +
+						parent += "<li onclick='click_T("+i+")' class='sidebar-nav-link'>" +
 							"<a href='javascript:onClick_u();' class='sidebar-nav-sub-title'>" +
-							"<i class='am-icon-globe am-icon-sm sidebar-nav-link-logo'></i>" + parentName + "" +
-							"<span class='am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico tpl-left-nav-more-ico'>" +
-							"</a><ul class='sidebar-nav-sub sidebar-nav'>" +
+							"<i id='i_"+i+"' class='am-icon-globe am-icon-sm sidebar-nav-link-logo'></i>" + parentName + "" +
+							"<span id='span_"+i+"' class='am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico tpl-left-nav-more-ico'>" +
+							"</a><ul id='ul_"+i+"' class='sidebar-nav sidebar-nav-sub'>" +
 							child +
 							"</ul></li><li class='am-nav-divider'></li>";
 					}
@@ -98,13 +102,17 @@
 				"---</a></li>"+
 				"</li>"; */
 				$("#permission_list").append(html);
+				$("#i_1").addClass('am-icon-mobile am-icon-md sidebar-nav-link-logo');
+				$("#i_2").addClass('am-icon-globe am-icon-sm sidebar-nav-link-logo');
+				$("#i_3").addClass('am-icon-wpforms am-icon-sm sidebar-nav-link-logo');
+				$("#i_4").addClass('am-icon-cog am-icon-sm sidebar-nav-link-logo');
 			}
 		});
 	});
 </script>
 <body>
 	<!-- 侧边导航栏 -->
-	<div class="left-sidebar tpl-left-nav tpl-page-header-fixed">
+	<div style="width:275px" class="left-sidebar tpl-left-nav tpl-page-header-fixed">
 		<!-- 用户信息 -->
 		<div class="tpl-sidebar-user-panel">
 			<div class="tpl-user-panel-slide-toggleable">
@@ -137,7 +145,7 @@
 		<!-- 菜单 -->
 		<ul id="permission_list" class="sidebar-nav">
 			<!-- APP板块 -->
-				<li class="sidebar-nav-link">
+				<%-- <li class="sidebar-nav-link">
 					<a href="javascript:onClick_u();" class="sidebar-nav-sub-title">
 						<i class="am-icon-mobile am-icon-md sidebar-nav-link-logo"></i>
 						APP管理
@@ -156,7 +164,7 @@
 			<li class="am-nav-divider"></li>
 			<!-- 区域管理 -->
 			<li class="sidebar-nav-link">
-				<a href="javascript:;" class="sidebar-nav-sub-title">
+				<a href="javascript:onClick_u();" class="sidebar-nav-sub-title">
 					<i class="am-icon-globe am-icon-sm sidebar-nav-link-logo"></i>
 					区域管理
 					<span
@@ -227,14 +235,15 @@
 					</li>
 				</ul>
 			</li>
-			<li class="am-nav-divider"></li>
+			<li class="am-nav-divider"></li> --%>
 			
 		</ul>
-	</div>
-	<s:iterator value="#request.permissions">
+		<s:iterator value="#request.permissions">
 				<s:property value="id" />
 			</s:iterator>
 			<s:debug></s:debug>
+	</div>
+	
 </body>
 </html>
 

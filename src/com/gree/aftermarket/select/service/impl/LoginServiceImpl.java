@@ -85,4 +85,14 @@ public class LoginServiceImpl extends BaseService<User> implements LoginService{
 		}
 		return per;
 	}
+	@Transactional
+	public String queryParentLable(String id){
+		//查询父标签的名称
+		String parent_label = "from Permission p where p.id = '"+id+"' ";
+		List<Permission> temp_per = userDao.findByHqL(parent_label);
+		if(temp_per.size()>0){
+			return temp_per.get(0).getPermissionName();
+		}
+		return "0";
+	}
 }

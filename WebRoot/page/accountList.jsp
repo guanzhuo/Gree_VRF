@@ -27,7 +27,7 @@
 <link rel="stylesheet" type="text/css" href="<%=path%>/assets/css/admin.css">
 <link rel="stylesheet" type="text/css" href="<%=path%>/assets/css/app.css">
 <link rel="stylesheet" type="text/css" href="<%=path%>/assets/css/fullcalendar.min.css">
-<link rel="stylesheet" type="text/css" href="<%=path%>/assets/css/jquery.dataTable.css">
+<link rel="stylesheet" type="text/css" href="<%=path%>/assets/css/jquery.dataTables.css">
 <link rel="stylesheet" type="text/css" href="<%=path%>/assets/css/fullcalendar.print.css"
 	media='print'>
 </head>
@@ -55,8 +55,8 @@
 				</ol>
 				<!--  中间数据 -->
 				<table width="100%"
-					class="am-table am-table-striped am-table-bordered am-table-compact am-text-nowrap"
-					id="example-r">
+					class="display am-table am-table-striped am-table-bordered am-table-compact am-text-nowrap"
+					id="user_list" >
 					<thead>
 						<tr>
 							<th>id</th>
@@ -64,29 +64,23 @@
 							<th>phone</th>
 							<th>address</th>
 							<th>pwd</th>
+							<th></th>
 						</tr>
 					</thead>
-					<tfoot>
-						<tr>
-							<th>id</th>
-							<th>name</th>
-							<th>phone</th>
-							<th>address</th>
-							<th>pwd</th>
-						</tr>
-					</tfoot>
+					<tbody id="table_b">
+					</tbody>
 				</table>
 			</div>
 
 		</div>
 	</div>
 	<script src="<%=path%>/assets/js/jquery.min.js"></script>
-	<script src="<%=path%>/assets/js/jquery.dataTables.js"></script>
 	<script src="<%=path%>/assets/js/moment.js"></script>
 	<script src="<%=path%>/assets/js/amazeui.min.js"></script>
 	<script src="<%=path%>/assets/js/fullcalendar.min.js"></script>
 	<script src="<%=path%>/js/homePage.js"></script>
 	<script src="<%=path%>/js/dataTable.responsive.min.js"></script>
+	<script src="<%=path%>/assets/js/jquery.dataTables.js"></script>
 	<script>
 
 		$(document).ready(function() {
@@ -103,6 +97,25 @@
 					{"id":2,"name":"ss","phone":"phone","address":"123","pwd":"222"},
 					{"id":2,"name":"ss","phone":"phone","address":"123","pwd":"222"}];
 					table_a(userList);
+					$("#user_list tbody").on('click','tr',function(){
+						if ( $(this).hasClass('selected') ) {
+			            $(this).removeClass('selected');
+				        }else {
+				            table.$('tr.selected').removeClass('selected');
+				            $(this).addClass('selected');
+				        }
+						});
+					$('#table_b')
+				        .on( 'mouseover', 'td', function () {
+				            var colIdx = table.cell(this).index().column;
+				            if ( colIdx !== lastIdx ) {
+				                $( table.cells().nodes() ).removeClass( 'highlight' );
+				                $( table.column( colIdx ).nodes() ).addClass( 'highlight' );
+				            }
+				        } )
+				        .on( 'mouseleave', function () {
+				            $( table.cells().nodes() ).removeClass( 'highlight' );
+				        } );
 					console.log(ss+"--"+JSON.stringify(userList));
 				}
 			}) 
@@ -110,7 +123,7 @@
 		function table_a(data){
 			//"processing": true,
 				//"ajax" : "Account_accountList.do",
-			$("#example-r").dataTable({
+			$("#user_list").DataTable({
 				"data": data,
 				"columns" : [
 				{"data" : "id"},

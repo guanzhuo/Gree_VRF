@@ -277,8 +277,8 @@ ul.tpl-dropdown-content .tpl-dropdown-menu-messages-item .menu-messages-content 
 .left-sidebar {
   transition: all 0.4s ease-in-out;
   width: 240px;
-  /* min-height: 100%; */ /* hlp ±ß¿ò¸ß¶È×ÔÊÊÓ¦ */
-  /* padding-top: 57px; */ /* hlp ÆÁ±Î ¾àÀëÍâ²¿¶¥²¿Ì«¸ßÁË */
+  /* min-height: 100%; */ /* hlp ï¿½ß¿ï¿½ß¶ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ */
+  /* padding-top: 57px; */ /* hlp ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½â²¿ï¿½ï¿½ï¿½ï¿½Ì«ï¿½ï¿½ï¿½ï¿½ */
   position: absolute;
   z-index: 1104;
   top: 0;
@@ -391,14 +391,14 @@ ul.tpl-dropdown-content .tpl-dropdown-menu-messages-item .menu-messages-content 
 .tpl-content-wrapper {
   transition: all 0.4s ease-in-out;
   position: relative;
-  margin-left: 232px;
+  margin-left: 295px;
   margin-top: 5rem;
   z-index: 1101;
   min-height: 922px;
   border-bottom-left-radius: 3px;
 }
 .tpl-content-wrapper.xs-active {
-  margin-left: 240px;
+  margin-left: 300px;
 }
 .tpl-content-wrapper.active {
   margin-left: 0;
@@ -1289,8 +1289,8 @@ ul.tpl-dropdown-content .tpl-dropdown-menu-messages-item .menu-messages-content 
   color: #cfcfcf;
 }
 /* 
-*¸ü»»Æ¤·ôÊ±¸Ä±äÈÕÀúÑùÊ½
-390694 ÆÁ±Î
+*ï¿½ï¿½ï¿½ï¿½Æ¤ï¿½ï¿½Ê±ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½
+390694 ï¿½ï¿½ï¿½ï¿½
 .theme-black .tpl-calendar-box {
   background: #424b4f;
   padding: 20px;
@@ -1925,7 +1925,7 @@ ul.tpl-dropdown-content .tpl-dropdown-menu-messages-item .menu-messages-content 
   }
 }
 
-/* start----------------- ×Ô¶¨ÒåÌí¼ÓµÄ -----------hlp------------- */
+/* start----------------- ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½ -----------hlp------------- */
 .tpl-page-container {
     margin: 0;
     padding: 20px 20px 0;
@@ -1945,7 +1945,7 @@ ul.tpl-dropdown-content .tpl-dropdown-menu-messages-item .menu-messages-content 
     padding-bottom: 20px;
 }
 
-/* Ê¹ÓÃCSS3µÄ@mediaÀ´±àÐ´ÏìÓ¦Ê½µÄÒ³Ãæ */
+/* Ê¹ï¿½ï¿½CSS3ï¿½ï¿½@mediaï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½Ó¦Ê½ï¿½ï¿½Ò³ï¿½ï¿½ */
 @media screen and (max-width: 1000px) {
     .tpl-left-nav-hover {
         display: none;
@@ -1993,7 +1993,7 @@ ul.tpl-dropdown-content .tpl-dropdown-menu-messages-item .menu-messages-content 
 .am-breadcrumb >li>a:hover {
   color: #559AD1;
 }
-/*start ============ÒÔÏÂÊÇÈÕÀúÑùÊ½=============  */
+/*start ============ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½=============  */
  .tpl-calendar-box {
   /* background: #AFC3B8; */
   width:95%;
@@ -2005,7 +2005,7 @@ ul.tpl-dropdown-content .tpl-dropdown-menu-messages-item .menu-messages-content 
   border-radius: 0;
   box-shadow: 0;
 }
-/* ÈÕ³Ì±³¾° */
+/* ï¿½Õ³Ì±ï¿½ï¿½ï¿½ */
  .tpl-calendar-box .fc-event {
   border-radius: 0;
   /* background: #AFC3B8; */
@@ -2019,7 +2019,7 @@ ul.tpl-dropdown-content .tpl-dropdown-menu-messages-item .menu-messages-content 
   /* background: #BDE7CF; */
   background: #F4E6D4;
 }
-/*  ¶àÌõÈÕ³Ì*/
+/*  ï¿½ï¿½ï¿½ï¿½ï¿½Õ³ï¿½*/
 .tpl-calendar-box .fc-more {
 	color: #868E8E;
 }
@@ -2083,7 +2083,7 @@ ul.tpl-dropdown-content .tpl-dropdown-menu-messages-item .menu-messages-content 
 	
 } */
 
-/* µ¯³ö²ãÑùÊ½ */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ */
 /*  .tpl-am-model-bd {
   background: #fff;
 }
@@ -2091,9 +2091,9 @@ ul.tpl-dropdown-content .tpl-dropdown-menu-messages-item .menu-messages-content 
   background: #fff;
 }  */
 
-/*end ============ÒÔÉÏÊÇÈÕÀúÑùÊ½=============  */
+/*end ============ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½=============  */
 
-/* ================ÒÔÏÂÊÇ±í¸ñÖÐ°´Å¥ÑùÊ½============ */
+/* ================ï¿½ï¿½ï¿½ï¿½ï¿½Ç±ï¿½ï¿½ï¿½Ð°ï¿½Å¥ï¿½ï¿½Ê½============ */
 .tpl-table-black-operation a {
   display: inline-block;
   padding: 5px 6px;
@@ -2101,34 +2101,34 @@ ul.tpl-dropdown-content .tpl-dropdown-menu-messages-item .menu-messages-content 
   line-height: 12px;
 }
 
-/* ÇàÉ«°´Å¥ */
+/* ï¿½ï¿½É«ï¿½ï¿½Å¥ */
 .tpl-table-black-operation a {
 	border: 1px solid #dde2e2;
 	color: #36c6d3;
 }
-/* Êó±ê¾­¹ý */
+/* ï¿½ï¿½ê¾­ï¿½ï¿½ */
 .tpl-table-black-operation a:hover {
 	background: #36c6d3;
 	color: #fff;
 }
 
-/* ºìÉ«°´Å¥ */
+/* ï¿½ï¿½É«ï¿½ï¿½Å¥ */
 .tpl-table-black-operation a.tpl-table-black-operation-del {
 	border: 1px solid #dde2e2;
 	color: #e7505a;
 }
-/* Êó±ê¾­¹ý */
+/* ï¿½ï¿½ê¾­ï¿½ï¿½ */
 .tpl-table-black-operation a.tpl-table-black-operation-del:hover {
 	background: #e7505a;
 	color: #fff;
 }
-/* ±í¸ñ¶¥²¿°´Å¥ */
+/* ï¿½ï¿½ñ¶¥²ï¿½ï¿½ï¿½Å¥ */
 .am-btn-group-xs > .am-btn {
     font-size: 1.3rem;
     font-family: 'my_font';
 }
 
-/* ÒÔÏÂÊÇ±í¸ñÑùÊ½ */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½Ç±ï¿½ï¿½ï¿½ï¿½Ê½ */
 .tpl-table-black {
 	/* color: #838FA1; */
 	color: #666666;
@@ -2150,4 +2150,4 @@ ul.tpl-dropdown-content .tpl-dropdown-menu-messages-item .menu-messages-content 
 	padding: 6px 0;
 }
 
-/* end----------------- ×Ô¶¨ÒåÌí¼ÓµÄ -----------hlp------------- */
+/* end----------------- ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½ -----------hlp------------- */

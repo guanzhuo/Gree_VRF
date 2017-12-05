@@ -30,7 +30,7 @@
 	<!-- 头部 -->
 	<header class="admin-header topbar"> <!-- logo -->
 	<div class="am-fl tpl-header-logo">
-		<a href="javascript:;">
+		<a href="page/homePage.jsp">
 			<img src="./image/logo.png" alt="">
 		</a>
 	</div>

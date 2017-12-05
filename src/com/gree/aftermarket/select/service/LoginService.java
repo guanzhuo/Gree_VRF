@@ -10,4 +10,7 @@ public interface LoginService {
     //获取登录用户的权限信息
     public List<Permission> userPermission();
 	public void logOut();
+	//查询父节点名称
+	public String queryParentLable(String id);
+	
 }
