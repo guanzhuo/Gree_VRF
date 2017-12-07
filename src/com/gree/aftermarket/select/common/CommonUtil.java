@@ -9,5 +9,4 @@ public class CommonUtil {
     		System.out.println(msg);
     	}
     }
-    
 }

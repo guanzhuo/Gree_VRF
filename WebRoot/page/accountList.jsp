@@ -55,19 +55,20 @@
 				</ol>
 				<!--  中间数据 -->
 				<table width="100%"
-					class="display am-table am-table-striped am-table-bordered am-table-compact am-text-nowrap"
+					class="display "
 					id="user_list" >
 					<thead>
 						<tr>
+							<th><input id="checkbox_id_all" name="checkbox_name_all" type="checkbox" value=""></th>
 							<th>id</th>
 							<th>name</th>
 							<th>phone</th>
 							<th>address</th>
 							<th>pwd</th>
-							<th></th>
+							<th>删除</th>
 						</tr>
 					</thead>
-					<tbody id="table_b">
+					<tbody>
 					</tbody>
 				</table>
 			</div>
@@ -82,7 +83,22 @@
 	<script src="<%=path%>/js/dataTable.responsive.min.js"></script>
 	<script src="<%=path%>/assets/js/jquery.dataTables.js"></script>
 	<script>
-
+	/* function aaa(id){
+		var table = $('#user_list').DataTable();
+		$('#user_list tbody').on( 'click', 'tr', function () {
+		  console.log( table.row( this ).data() );
+		} );
+				/* console.log("1111");
+                var data = $('#user_list').DataTable().row($(this).parents('tr')).data();
+                var count =$('#user_list').DataTable().row.count; */
+                /* alert("查看修改："+JSON.stringify(count)); }*/
+		function test_oo(){
+			var table = $('#user_list').DataTable();
+		  		console.log(table.rows);
+		}
+		function myEditor(){
+			alert("");
+		}
 		$(document).ready(function() {
 			$.ajax({
 				url : "Account_accountList.do",
@@ -91,32 +107,17 @@
 				type : "POST",
 				success : function(data) {
 					var userList = data.userdata;
-					var ss = 
+					for(var i=0;i<userList.length;i++){
+						userList[i]["temp"]="<input type='checkbox' value=''>";
+/* 						userList[i]["mo"]="<button onclick='test_oo()'>修改</button>"
+ */					}
+					console.log(userList);
+				/* 	var ss = 
 					[{"id":1,"name":"ww","phone":"phone","address":"123","pwd":"222"},
 					{"id":2,"name":"ss","phone":"phone","address":"123","pwd":"222"},
 					{"id":2,"name":"ss","phone":"phone","address":"123","pwd":"222"},
-					{"id":2,"name":"ss","phone":"phone","address":"123","pwd":"222"}];
+					{"id":2,"name":"ss","phone":"phone","address":"123","pwd":"222"}]; */
 					table_a(userList);
-					$("#user_list tbody").on('click','tr',function(){
-						if ( $(this).hasClass('selected') ) {
-			            $(this).removeClass('selected');
-				        }else {
-				            table.$('tr.selected').removeClass('selected');
-				            $(this).addClass('selected');
-				        }
-						});
-					$('#table_b')
-				        .on( 'mouseover', 'td', function () {
-				            var colIdx = table.cell(this).index().column;
-				            if ( colIdx !== lastIdx ) {
-				                $( table.cells().nodes() ).removeClass( 'highlight' );
-				                $( table.column( colIdx ).nodes() ).addClass( 'highlight' );
-				            }
-				        } )
-				        .on( 'mouseleave', function () {
-				            $( table.cells().nodes() ).removeClass( 'highlight' );
-				        } );
-					console.log(ss+"--"+JSON.stringify(userList));
 				}
 			}) 
 		});
@@ -126,12 +127,71 @@
 			$("#user_list").DataTable({
 				"data": data,
 				"columns" : [
+				{"data" : "temp"},
 				{"data" : "id"},
 				{"data" : "name"},
 				{"data" : "phone"}, 
 				{"data" : "address"},
-				{"data" : "email"}]
+				{"data" : "email"},
+/* 				{"data" : "mo"},
+ */				],
+				"columnDefs" :[{
+					"targer":1,
+					"data":null,
+					"render":function(data,type,row){
+						var html = "<a href='javascript:void(0);' class='up btn btn-default btn-xs'><i class='fa fa-arrow-up'></i> 编辑</a>"
+						return html;
+					}
+				}],
+				"aoColumnDefs":[//设置列的属性，此处设置第一列不排序
+                    {"bSortable": false, "aTargets": [0]},{ "class": "tn", "targets": [ 0 ] },
+                    {
+                        "targets": -1,
+                        "class": "but_xq",
+                        "data": null,
+                        "bSortable": false,
+                        "defaultContent": "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id=\"edit\" href=\"#\">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;<a id=\"del\"  href=\"#\">删除</a></p>"
+                    } 
+                ],
 			});
+			
+			 
+			$('#user_list').DataTable( {
+			    buttons: [
+			        { extend: 'remove', editor: myEditor }
+			    ]
+			} );
+			 //单击行，选中复选框
+            $("#user_list tr").slice(1).each(function(g){
+                var p = this;
+                $(this).children().slice(1).click(function(){
+                    $($(p).children()[0]).children().each(function(){
+                        if(this.type=="checkbox"){
+                            if(!this.checked){
+                                this.checked = true;
+                            }else{
+                                this.checked = false;
+                            }
+                        }
+                    });
+                });
+            });
+            /**
+             * 全选/全不选
+             */
+            $('#checkbox_id_all').click( function () {
+                $(":checkbox:not(#checkbox_id_all)").attr("checked", this.checked);
+            });
+			/* var table = $('#user_list').DataTable();
+			$('#user_list tbody').on( 'click', 'tr', function () {
+		  		console.log( table.row( this ).data().id );
+			} );
+			
+			$('a#edit').on( 'click', 'a#edit', function () {
+                var data = $('#user_list').DataTable().row((this).data());
+                alert(data);
+                alert("查看修改："+data.id );
+            } ); */
 		}
 	</script>
 </body>

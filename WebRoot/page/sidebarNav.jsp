@@ -47,16 +47,14 @@
 			type : "POST",
 			data : {},
 			success : function(data) {
-				console.log(data);
-				console.log(data[0][1]);
 				var perList = data[0];
 				var htmlAll = "";
-				console.log(objLength(perList));
-
 				var parent = "";
 				var html = "";
+				console.log(perList);
 				for (var i = 1; i <= objLength(perList); i++) {
 					var ppp = perList[i];
+					
 					if (perList[i].length > 0) {
 						var parentName = "";
 						var child = "";
@@ -68,7 +66,6 @@
 								"" + per.permissionName + "</a></li>"
 							parentName = per.parentId;
 						}
-						console.log("==" + child);
 						parent += "<li onclick='click_T("+i+")' class='sidebar-nav-link'>" +
 							"<a href='javascript:onClick_u();' class='sidebar-nav-sub-title'>" +
 							"<i id='i_"+i+"' class='am-icon-globe am-icon-sm sidebar-nav-link-logo'></i>" + parentName + "" +
@@ -78,8 +75,6 @@
 							"</ul></li><li class='am-nav-divider'></li>";
 					}
 				}
-
-				console.log(parent);
 				html = parent;
 
 				/* parent+="<li class='sidebar-nav-link'>"+
